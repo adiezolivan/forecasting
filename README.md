@@ -32,7 +32,7 @@ Given the above errors and the information regarding manufacturing cost, selling
   - approximate losses for not having enough stock: 11039.979195465148
   - approximate costs for having extra stock: 1728.2074360304698
 
-The tested approaches go from less to more complex, and the seasonal-based solution seems to be the more accurate.
+The tested approaches go from less to more complex, and the seasonal-based solution seems to be the most accurate.
 
 
 To run the application, two different options:
