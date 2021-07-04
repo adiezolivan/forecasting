@@ -20,3 +20,14 @@ To validate the results obtained by all three approaches, the estimated sales ar
 | September 2019   | 270          | 297.291139    	| 27.291139     | 223.333333         | -46.666667	       | 275.670955           | 5.670955           |
 | June-August 2020 | 1004         | 889.527721    	| -114.472279   | 971.0              | -33.0    	       | 931.660297           | -72.339703         |
 | September 2020   | 249          | 296.532148    	| 47.532148     | 229.75             | -19.25            | 297.391365           | 48.391365          |
+
+To run the application, two different options:
+- Approach design, implementation and testing: go to https://mybinder.org/ and paste this Github repository name, https://github.com/adiezolivan/other_stuff/, then run 'src/ds_solution_adiezolivan.ipynb'
+- Production deployment and execution: run the script 'sales_forecast_main.py' using the following parameters (example given): 
+  - order_date = datetime(2020,6,1)
+  - lead_time_days = 90
+  - days_to_next_order = 30
+  - current_stock_level = 400
+  - stock_in_transit = 600
+  - sales_data = ../sales_data.csv  
+  - approach = [mean, seasonal, recurrent]
