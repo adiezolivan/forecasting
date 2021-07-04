@@ -2,4 +2,4 @@ torch==1.7.1
 numpy==1.19.5
 matplotlib==3.3.2
 pandas==1.1.5
-sklearn==0.19.1
+sklearn
