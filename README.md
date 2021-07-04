@@ -1,6 +1,6 @@
 # NEXTAIL Labs code test
 
-This code test is about improving the current solution that is about forecasting the number of products to be ordered in order to anticipate sales. The current stock is also important.  
+This code test aims at improving the current solution that is about forecasting the number of products to be ordered in order to anticipate sales. The current stock is also important.  
 
 Current solution is based on the mean value of all previous sales avaiable from a given date.
 
@@ -20,6 +20,20 @@ To validate the results obtained by all three approaches, the estimated sales ar
 | September 2019   | 270          | 297.291139    	| 27.291139     | 223.333333         | -46.666667	       | 275.670955           | 5.670955           |
 | June-August 2020 | 1004         | 889.527721    	| -114.472279   | 971.0              | -33.0    	       | 931.660297           | -72.339703         |
 | September 2020   | 249          | 296.532148    	| 47.532148     | 229.75             | -19.25            | 297.391365           | 48.391365          |
+
+Given the above errors and the information regarding manufacturing cost, selling price, holding cost, and financial costs, an approximate gain and loss values (in Euros) can be provided for decision support in a more comprehensive manner:
+- Mean-based solution:
+  - approximate losses for not having enough stock: 7502.162285501813
+  - approximate costs for having extra stock: 2859.9967044733844
+- Seasonal-based solution:
+  - approximate losses for not having enough stock: 3225.99328125
+  - approximate costs for having extra stock: 0.0
+- Recurrent-based solution:
+  - approximate losses for not having enough stock: 11039.979195465148
+  - approximate costs for having extra stock: 1728.2074360304698
+
+The tested approaches go from less to more complex, and the seasonal-based solution seems to be the more accurate.
+
 
 To run the application, two different options:
 - Approach design, implementation and testing: go to https://mybinder.org/ and paste this Github repository name, https://github.com/adiezolivan/other_stuff/, then run 'src/ds_solution_adiezolivan.ipynb'
