@@ -45,3 +45,7 @@ To run the application, two different options:
   - stock_in_transit = 600
   - sales_data = ../sales_data.csv  
   - approach = [mean, seasonal, recurrent]
+
+There are two additional files:
+- sales_forecast_methods.py => python file that contains methods used by the three approaches
+- gru_model.py => python file that implements the GRU model used in the recurrent approach
