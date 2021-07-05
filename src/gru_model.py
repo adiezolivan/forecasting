@@ -15,6 +15,11 @@ print("Processing available: " + str(device))
 
 
 def seed_all(seed):
+    """ Method that specifies a seed for reproducibility
+
+    :param seed: the seed used
+    :returns
+    """
     if not seed:
         seed = 10
     print("[ Using Seed : ", seed, " ]")
@@ -27,7 +32,14 @@ def seed_all(seed):
     torch.backends.cudnn.benchmark = False
 
 
-def generate_time_lags(df, n_lags):
+def generate_time_lags(df,
+                       n_lags):
+    """ Method that prepares the tabular data from time series containing different time lags
+
+    :param df: the original DataFrame
+    :param n_lags: the temporal horizon considered
+    :returns the resulting DataFrame in tabular format
+    """
     df_n = df.copy()
     for n in range(1, n_lags + 1):
         df_n[f"lag{n}"] = df_n['sales'].shift(n)
@@ -36,7 +48,15 @@ def generate_time_lags(df, n_lags):
 
 
 class GRUModel(nn.Module):
-    def __init__(self, input_dim, hidden_dim, layer_dim, output_dim, dropout_prob):
+    """
+    This class implements the GRU model
+    """
+    def __init__(self,
+                 input_dim,
+                 hidden_dim,
+                 layer_dim,
+                 output_dim,
+                 dropout_prob):
         super(GRUModel, self).__init__()
         # Defining the number of layers and the nodes in each layer
         self.layer_dim = layer_dim
@@ -48,7 +68,8 @@ class GRUModel(nn.Module):
         # Fully connected layer
         self.fc = nn.Linear(hidden_dim, output_dim)
 
-    def forward(self, x):
+    def forward(self,
+                x):
         # Initializing hidden state for first input with zeros
         h0 = torch.zeros(self.layer_dim, x.size(0), self.hidden_dim).requires_grad_().to(device)
         # Forward propagation by passing in the input and hidden state into the model
@@ -62,14 +83,22 @@ class GRUModel(nn.Module):
 
 
 class Optimization:
-    def __init__(self, model, loss_fn, optimizer):
+    """
+    This class implements the training process of the GRU model
+    """
+    def __init__(self,
+                 model,
+                 loss_fn,
+                 optimizer):
         self.model = model.to(device)
         self.loss_fn = loss_fn
         self.optimizer = optimizer
         self.train_losses = []
         self.val_losses = []
 
-    def train_step(self, x, y):
+    def train_step(self,
+                   x,
+                   y):
         # Sets model to train mode
         self.model.train()
         # Makes predictions
@@ -156,7 +185,10 @@ class Optimization:
         plt.show()
         plt.close()
 
-    def evaluate(self, test_loader, batch_size=1, n_features=1):
+    def evaluate(self,
+                 test_loader,
+                 batch_size=1,
+                 n_features=1):
         with torch.no_grad():
             predictions = []
             values = []
