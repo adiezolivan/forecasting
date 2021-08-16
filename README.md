@@ -1,4 +1,4 @@
-# NEXTAIL Labs code test
+# Products forecasting example
 
 This code test aims at improving the current solution that is about forecasting the number of products to be ordered in order to anticipate sales. The current stock is also important.  
 
